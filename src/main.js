@@ -45,4 +45,8 @@ class StringCalculator {
 
 }
 
+const calculator = new StringCalculator();
+
+console.log(calculator.add('//[**][%%]\n1**2%%3'));
+
 module.exports = { StringCalculator }
