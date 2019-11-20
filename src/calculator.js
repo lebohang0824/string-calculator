@@ -7,13 +7,13 @@ class StringCalculator {
 
 		numbers = numbers.split(/\D/);
 
-		for (var i = 0; i < numbers.length; i++) {
+		numbers.forEach(val => {
 			// Convert to number
-			let number = parseInt(numbers[i]); 
+			let number = parseInt(val); 
 
 			// Throw error of negative numbers
 		 	if (negatives) {
-		 		throw('Negative ' + negatives + 'not allowed');
+		 		throw('Negative ' + negatives + ' not allowed');
 			}
 
 			// Reset number to 0 if greater than 1000
@@ -25,20 +25,21 @@ class StringCalculator {
 		 		// Accept value if it's a number
 				results += number;
 			}
-		}
+		})
 
 		return results;
 	}
 
+	// Return string of negative numbers
 	negatives(string) {
 		let str = '';
-		let numbers = string.split(/\D/);
+		let num = string.split(',');
 
-		for (var i = 0; i < string.length; i++) {
-			if (string[i] == '-' && !isNaN(string[i+1])) {
-				str += numbers[i+1] +' ';
+		num.forEach(val => {			
+			if (val.includes('-')) {
+				str += val;
 			}
-		}
+		});
 
 		return str;
 	}
@@ -46,7 +47,5 @@ class StringCalculator {
 }
 
 const calculator = new StringCalculator();
-
-console.log(calculator.add('//[**][%%]\n1**2%%3'));
 
 module.exports = { StringCalculator }

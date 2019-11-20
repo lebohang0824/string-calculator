@@ -1,4 +1,4 @@
-const { StringCalculator } = require('../src/main.js');
+const { StringCalculator } = require('../src/calculator.js');
 
 const calculator = new StringCalculator();
 
@@ -22,6 +22,14 @@ describe('String calculator', () => {
 
 	it('Should return 3', () => {
 		expect(calculator.add('//;\n1;2')).toEqual(3);
+	});
+
+	it('Negative number will throw an exception', () => {
+		expect(calculator.add('-1, 1')).toEqual(2);
+	});
+
+	it('Negative numbers will throw an exceptions', () => {
+		expect(calculator.add('-1, -8')).toEqual(9);
 	});
 
 	it('Should return 2', () => {
