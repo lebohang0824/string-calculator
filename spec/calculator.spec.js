@@ -25,11 +25,15 @@ describe('String calculator', () => {
 	});
 
 	it('Negative number will throw an exception', () => {
-		expect(calculator.add('-1, 1')).toEqual(2);
+		expect(() => {
+			calculator.add('-2, 1');
+		}).toThrowError('Negative -2 not allowed');
 	});
 
-	it('Negative numbers will throw an exceptions', () => {
-		expect(calculator.add('-1, -8')).toEqual(9);
+	it('Negative number will throw an exception', () => {
+		expect(() => {
+			calculator.add('-8, -4');
+		}).toThrowError('Negative -8 -4 not allowed');
 	});
 
 	it('Should return 2', () => {

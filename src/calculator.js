@@ -13,7 +13,8 @@ class StringCalculator {
 
 			// Throw error of negative numbers
 		 	if (negatives) {
-		 		throw('Negative ' + negatives + ' not allowed');
+
+		 		throw new Error('Negative ' + negatives + ' not allowed');
 			}
 
 			// Reset number to 0 if greater than 1000
